@@ -79,18 +79,3 @@ kubectl -n ns-nginx get pods --show-labels
 kubectl get ns --show-labels
 ```
 
-Troubleshooting notes
----------------------
-- If traffic is not being blocked as expected, confirm the CNI/plugin supports NetworkPolicy. AKS with `network_policy = "azure"` requires Azure CNI policy support; many clusters use Calico for enforcement.
-- The example uses a Pod directly (no Service). Pod DNS names are not guaranteed; tests use the Pod IP retrieved above.
-- If you prefer a stable target, create a Service for the nginx pod and curl the Service ClusterIP instead.
-
-Next steps
-----------
-- Create a `Service` for the nginx Pod to simplify testing via DNS.
-- Add explicit egress policies if you need to restrict outbound traffic from `ns-fire`.
-- Add CI jobs that apply manifests to a disposable test cluster and run the connectivity checks automatically.
-
-If you want, I can:
-- add a Service manifest for nginx and update tests, or
-- run these verification commands against your cluster (if you provide access/context).
