@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-firefox 
+  namespace: ns-nginx 
+spec:
+  podSelector:
+    matchLabels:
+      rule: nginxrule
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+      - namespaceSelector: 
+           matchLabels: 
+             name: nginx

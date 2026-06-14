@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod 
+metadata: 
+  name: firefox-pod
+  namespace: ns-fire
+  labels:
+    rule: firefoxrule
+spec:
+  containers:
+    - name: firefox-container
+      image: jlesage/firefox
+      ports:
+        - containerPort: 5800
+        
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netshoot-pod
+  namespace: ns-fire
+spec:
+  containers:
+  - name: netshoot
+    image: nicolaka/netshoot
+    command: ["/bin/bash", "-c", "sleep infinity"]
+ 
