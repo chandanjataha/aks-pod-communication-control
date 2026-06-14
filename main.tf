@@ -42,3 +42,5 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_policy = "azure"
   }
 }
+
+# commit-marker-2: verify network_policy set for AKS
