@@ -14,3 +14,5 @@ spec:
       - namespaceSelector: 
            matchLabels: 
              name: nginx
+
+# commit-marker-3: restrict ingress to ns-nginx only
