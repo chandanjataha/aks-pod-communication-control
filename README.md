@@ -18,6 +18,10 @@ What’s in this repo
 - `ns-fire-block-np.yaml` — A NetworkPolicy in `ns-nginx` that restricts ingress to the nginx pod(s) to traffic from the `ns-nginx` namespace only.
 - `main.tf` — Terraform AKS example showing `network_policy = "azure"` (illustrative for AKS environments).
 
+Note: small doc tweak (commit marker 1).
+
+<!-- commit-marker-1 -->
+
 High-level intent
 -----------------
 The `deny-firefox` NetworkPolicy (in `ns-fire-block-np.yaml`) scopes to pods labeled `rule: nginxrule` in namespace `ns-nginx` and allows ingress only from namespaces labeled `name: nginx`. In effect, pods in `ns-fire` (for example `netshoot-pod`) should be blocked from reaching the `nginx` pod unless they are moved into `ns-nginx` or the policy is adjusted.
